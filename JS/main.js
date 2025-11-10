@@ -486,7 +486,6 @@ let quoteAuth = document.getElementById("author");
 let toastEl = document.getElementById("toast");
 let x = selector.value;
 
-
 newQuoteGenerator.addEventListener("click", () => {
   if (x == "motivational") {
     const randomQuote =
@@ -750,3 +749,35 @@ if (savedMode === "dark") {
   themeIconMoon.classList.remove("clear");
   darkModeToggle.checked = false;
 }
+
+// & CopyBtn ============= :
+document.getElementById("copyBtn").addEventListener("click", async function () {
+  // Get the quote text from the element (no need for user selection)
+  const quoteElement = quoteTxt.innerHTML;
+  const quoteText = quoteElement ? quoteElement : "";
+
+  if (!quoteText) {
+    alert("No quote to copy!");
+    return;
+  }
+
+  console.log(quoteElement);
+
+  try {
+    // Copy to clipboard
+    await navigator.clipboard.writeText(quoteText);
+    alert("Quote copied to clipboard!");
+    // Optional: Visual feedback, e.g., change button text temporarily
+    const button = this;
+    button.textContent = "Copied!";
+    setTimeout(() => (button.textContent = "Copy Quote"), 2000);
+  } catch (err) {
+    console.log(quoteElement);
+    console.error("Copy failed:", err);
+    alert(
+      "Copy failed. Ensure the page is secure (HTTPS) and try again. Alternatively, select and copy manually."
+    );
+  }
+});
+
+// & CopyBtn ============= .
