@@ -755,7 +755,7 @@ if (savedMode === "dark") {
 
 document.getElementById("copyBtn").addEventListener("click", async function () {
   const button = this;
-  const quoteElement = quoteTextBox.innerHTML;
+  const quoteElement = quoteTextBox.innerText;
   const quoteText = quoteElement ? quoteElement : "";
   const icon = document.getElementById("CopyIcon");
   if (!quoteText) {
