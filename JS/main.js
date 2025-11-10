@@ -481,6 +481,7 @@ const allQuotes = [
 let selector = document.getElementById("categorySelect");
 let newQuoteGenerator = document.getElementById("newQuoteGenerator");
 let option = document.getElementsByTagName("option");
+let quoteTextBox = document.getElementById("texBox");
 let quoteTxt = document.getElementById("quote");
 let quoteAuth = document.getElementById("author");
 let toastEl = document.getElementById("toast");
@@ -754,7 +755,7 @@ if (savedMode === "dark") {
 
 document.getElementById("copyBtn").addEventListener("click", async function () {
   const button = this;
-  const quoteElement = quoteTxt.innerHTML;
+  const quoteElement = quoteTextBox.innerHTML;
   const quoteText = quoteElement ? quoteElement : "";
   const icon = document.getElementById("CopyIcon");
   if (!quoteText) {
