@@ -751,37 +751,41 @@ if (savedMode === "dark") {
 }
 
 // & CopyBtn ============= :
+
 document.getElementById("copyBtn").addEventListener("click", async function () {
-  // Get the quote text from the element (no need for user selection)
+  const button = this;
   const quoteElement = quoteTxt.innerHTML;
   const quoteText = quoteElement ? quoteElement : "";
-
+  const icon = document.getElementById("CopyIcon");
   if (!quoteText) {
     alert("No quote to copy!");
     return;
   }
 
-  console.log(quoteElement);
+  // Clear any previous feedback
+  icon.className = "fa-regular fa-copy";
+  button.disabled = true; // Disable button to avoid multiple clicks
 
   try {
-    // Copy to clipboard
     await navigator.clipboard.writeText(quoteText);
     alert("Quote copied to clipboard!");
-    // Optional: Visual feedback, e.g., change button text temporarily
-    const button = this;
-    button.textContent =
-      <i class="fa-solid fa-check icon text-white"></i> & "Copied!";
-    setTimeout(
-      () =>
-        (button.textContent = <i class="fa-solid fa-copy icon"></i> & "Copy"),
-      2000
-    );
-  } catch (err) {
-    console.log(quoteElement);
-    console.error("Copy failed:", err);
-    alert(
-      "Copy failed. Ensure the page is secure (HTTPS) and try again. Alternatively, select and copy manually."
-    );
+    console.log(quoteText);
+    
+    // Change icon to check mark on success
+    icon.className = "fa-solid fa-check";
+    button.textContent = " Copied!";
+    button.insertBefore(icon, button.firstChild); // Reinsert icon
+
+    setTimeout(() => {
+      icon.className = "fa-regular fa-copy";
+      button.textContent = " Copy Quote";
+      button.insertBefore(icon, button.firstChild);
+      button.disabled = false;
+    }, 2000);
+  } catch (error) {
+    alert("Copy failed. Please copy manually.");
+    button.disabled = false;
+    console.error("Copy error:", error);
   }
 });
 
