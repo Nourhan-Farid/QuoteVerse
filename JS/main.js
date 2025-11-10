@@ -769,8 +769,13 @@ document.getElementById("copyBtn").addEventListener("click", async function () {
     alert("Quote copied to clipboard!");
     // Optional: Visual feedback, e.g., change button text temporarily
     const button = this;
-    button.textContent = "Copied!";
-    setTimeout(() => (button.textContent = "Copy Quote"), 2000);
+    button.textContent =
+      <i class="fa-solid fa-check icon text-white"></i> & "Copied!";
+    setTimeout(
+      () =>
+        (button.textContent = <i class="fa-solid fa-copy icon"></i> & "Copy"),
+      2000
+    );
   } catch (err) {
     console.log(quoteElement);
     console.error("Copy failed:", err);
