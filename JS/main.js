@@ -772,8 +772,8 @@ document.getElementById("copyBtn").addEventListener("click", async function () {
 
     // Change icon to check mark on success
     icon.className = "fa-solid fa-check";
-    button.insertBefore(icon, button.firstChild); // Reinsert icon
     button.textContent = "Copied!";
+    button.insertBefore(icon, button.firstChild); // Reinsert icon
 
     setTimeout(() => {
       icon.className = "fa-regular fa-copy";
