@@ -768,22 +768,20 @@ document.getElementById("copyBtn").addEventListener("click", async function () {
 
   try {
     await navigator.clipboard.writeText(quoteText);
-    alert("Quote copied to clipboard!");
     console.log(quoteText);
-    
+
     // Change icon to check mark on success
     icon.className = "fa-solid fa-check";
-    button.textContent = " Copied!";
     button.insertBefore(icon, button.firstChild); // Reinsert icon
+    button.textContent = " Copied!";
 
     setTimeout(() => {
       icon.className = "fa-regular fa-copy";
-      button.textContent = " Copy Quote";
+      button.textContent = " Copy";
       button.insertBefore(icon, button.firstChild);
       button.disabled = false;
     }, 2000);
   } catch (error) {
-    alert("Copy failed. Please copy manually.");
     button.disabled = false;
     console.error("Copy error:", error);
   }
