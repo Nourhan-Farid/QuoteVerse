@@ -24,11 +24,20 @@ const quotes = {
     },
     {
       quote: "It seems always impossible until it's done.",
-      author: "Nelson Mandala",
+      author: "Nelson Mandela",
     },
     {
       quote: "It does not matter how slowly you go as long as you do not stop.",
       author: "Confucius",
+    },
+    {
+      quote:
+        "Ever tried. Ever failed. No matter. Try again. Fail again. Fail better.",
+      author: "Samuel Beckett",
+    },
+    {
+      quote: "The way to get started is to quit talking and begin doing.",
+      author: "Walt Disney",
     },
   ],
   wisdom: [
@@ -86,6 +95,10 @@ const quotes = {
       quote:
         "If you want to know what a man's like, take a good look at how he treats his inferiors, not his equals.",
       author: "J.K. Rowling",
+    },
+    {
+      quote: "Life is really simple, but we insist on making it complicated.",
+      author: "Confucius",
     },
   ],
   happiness: [
@@ -149,6 +162,11 @@ const quotes = {
         "Success is not final, failure is not fatal: It is the courage to continue that counts.",
       author: "Winston Churchill",
     },
+    {
+      quote:
+        "Try not to become a person of success, but rather try to become a person of value.",
+      author: "Albert Einstein",
+    },
   ],
   life: [
     {
@@ -181,6 +199,10 @@ const quotes = {
       quote: "You only live once, but if you do it right, once is enough.",
       author: "Mae West",
     },
+    {
+      quote: "Nothing in life is to be feared, it is only to be understood.",
+      author: "Marie Curie",
+    },
   ],
   change: [
     {
@@ -196,6 +218,16 @@ const quotes = {
       quote: "Be yourself; everyone else is already taken.",
       author: "Oscar Wilde",
     },
+    {
+      quote:
+        "We must be willing to let go of the life we have planned, so as to have the life that is waiting for us.",
+      author: "E. M. Forster",
+    },
+    {
+      quote:
+        "All life is an experiment. The more experiments you make the better.",
+      author: "Ralph Waldo Emerson",
+    },
   ],
   courage: [
     {
@@ -210,6 +242,11 @@ const quotes = {
     {
       quote: "Everything you've ever wanted is on the other side of fear.",
       author: "George Addair",
+    },
+    {
+      quote:
+        "I learned that courage was not the absence of fear, but the triumph over it.",
+      author: "Nelson Mandela",
     },
   ],
   inspirational: [
@@ -229,6 +266,11 @@ const quotes = {
     {
       quote: "Believe you can and you're halfway there.",
       author: "Theodore Roosevelt",
+    },
+    {
+      quote:
+        "You will face many defeats in life, but never let yourself be defeated.",
+      author: "Maya Angelou",
     },
   ],
   love: [
@@ -693,7 +735,7 @@ shareQuote.addEventListener("click", () => {
   } else {
     // Fallback for browsers that don't support Web Share API
     const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-      quoteToShare
+      quoteToShare,
     )}`;
     window.open(shareUrl, "_blank");
     showToast("Opened sharing options");
